@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.game-controls {
+    margin-bottom: 20px;
+}
+
+.score {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.speed-control label {
+    white-space: nowrap;
+}
+
+#speedSlider {
+    width: 120px;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#speedSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+#speedSlider::-webkit-slider-thumb:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+#speedSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3498db;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+
+#speedSlider::-moz-range-thumb:hover {
+    background: #2980b9;
+    transform: scale(1.1);
+}
+
+#speedValue {
+    min-width: 30px;
+    text-align: center;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#startBtn {
+    background: #27ae60;
+    color: white;
+}
+
+#startBtn:hover {
+    background: #229954;
+    transform: translateY(-2px);
+}
+
+#pauseBtn {
+    background: #f39c12;
+    color: white;
+}
+
+#pauseBtn:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+}
+
+#restartBtn {
+    background: #e74c3c;
+    color: white;
+}
+
+#restartBtn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+#gameCanvas {
+    border: 3px solid #2c3e50;
+    border-radius: 10px;
+    background: #34495e;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.instructions {
+    background: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.instructions h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    margin-bottom: 8px;
+    color: #7f8c8d;
+    line-height: 1.5;
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(231, 76, 60, 0.9);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.game-paused {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(243, 156, 18, 0.9);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .game-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .speed-control {
+        justify-content: center;
+        font-size: 1em;
+    }
+
+    #speedSlider {
+        width: 100px;
+    }
+
+    .game-controls {
+        margin-bottom: 15px;
+    }
+
+    .controls {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+        min-width: 80px;
+    }
+
+    #gameCanvas {
+        width: 100%;
+        max-width: 350px;
+        height: 350px;
+    }
+}
